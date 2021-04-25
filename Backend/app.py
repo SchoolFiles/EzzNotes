@@ -23,7 +23,7 @@ def login():
         email = request.form.get('email')
         password = hashlib.md5(request.form.get('password'))
 
-        login = access_site(username, email, password)
+        #login = access_site(username, email, password)
 
     
 
