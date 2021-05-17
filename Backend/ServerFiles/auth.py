@@ -1,4 +1,4 @@
-from flask import Flask, Blueprint, request, url_for, redirect, render_template
+from flask import Flask, Blueprint, request, url_for, redirect, render_template, make_response
 import hashlib
 import sqlite3
 import os
@@ -16,7 +16,7 @@ def index():
         return render_template("index.html")
     
 
-# ----------------------------------------------------- Login Page ----------------------------------------------------
+# ---------------------------------------------------- Login Page ----------------------------------------------------
 @Auth.route("/login", methods=['GET', 'POST'])
 def login():
     if request.method == 'GET':
@@ -33,7 +33,7 @@ def login():
 
         
 
-# ------------------------------------------------------ SignUP Page ---------------------------------------------------
+# ----------------------------------------------------- SignUP Page ---------------------------------------------------
 @Auth.route("/SignUp")
 def signUp():
     return "Sign Up"
@@ -43,6 +43,7 @@ def signUp():
 @Auth.route("/logout")
 def logout():
     return redirect(url_for("index.html"))
+
 
 
 # ------------------------------------------------------ Functions ------------------------------------------------------
